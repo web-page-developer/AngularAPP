@@ -1,0 +1,151 @@
+<!-- Assuming you have included Bootstrap 5 CSS in your Angular project -->
+
+<div class="container mt-5">
+  <!-- Logout Button -->
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+  </div>
+  <br />
+
+  <!-- Card to wrap the form -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Flight Information Form</h3>
+
+          <!-- Success Alert -->
+          <div
+            *ngIf="successMessage"
+            class="alert alert-success alert-dismissible fade show"
+            role="alert"
+          >
+            {{ successMessage }}
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <!-- Candidate Name -->
+          <div class="form-group mb-3">
+            <label for="candidate" class="form-label">
+              Enter Name: <span class="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              class="form-control rounded"
+              id="candidate"
+              placeholder="Enter Name:"
+              [(ngModel)]="candidate"
+              required
+            />
+          </div>
+
+          <!-- Airline Name -->
+          <div class="form-group mb-3">
+            <label for="airline" class="form-label">
+              Enter Airline Name: <span class="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              class="form-control rounded"
+              id="airline"
+              placeholder="Enter Airline Name:"
+              [(ngModel)]="flightinfopayload.airline"
+              required
+            />
+          </div>
+
+          <!-- Arrival Date -->
+          <div class="form-group mb-3">
+            <label for="arrivalDate" class="form-label">
+              Enter Arrival Date: <span class="text-danger">*</span>
+            </label>
+            <input
+              type="date"
+              class="form-control rounded"
+              id="arrivalDate"
+              [(ngModel)]="flightinfopayload.arrivalDate"
+              required
+            />
+          </div>
+
+          <!-- Arrival Time -->
+          <div class="form-group mb-3">
+            <label for="arrivalTime" class="form-label">
+              Enter Arrival Time: <span class="text-danger">*</span>
+            </label>
+            <input
+              type="time"
+              class="form-control rounded"
+              id="arrivalTime"
+              [(ngModel)]="flightinfopayload.arrivalTime"
+              required
+            />
+          </div>
+
+          <!-- Flight Number -->
+          <div class="form-group mb-3">
+            <label for="flightNumber" class="form-label">
+              Enter Flight Number: <span class="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              class="form-control rounded"
+              id="flightNumber"
+              placeholder="Enter Flight Number:"
+              [(ngModel)]="flightinfopayload.flightNumber"
+              required
+            />
+          </div>
+
+          <!-- Number of Guests -->
+          <div class="form-group mb-3">
+            <label for="numOfGuests" class="form-label">
+              Enter Number of Guests: <span class="text-danger">*</span>
+            </label>
+            <input
+              type="number"
+              class="form-control rounded"
+              id="numOfGuests"
+              placeholder="Enter Number of Guests:"
+              [(ngModel)]="flightinfopayload.numOfGuests"
+              required
+            />
+          </div>
+
+          <!-- Comments (Optional) -->
+          <div class="form-group mb-3">
+            <label for="comments" class="form-label">Enter Comments:</label>
+            <input
+              type="text"
+              class="form-control rounded"
+              id="comments"
+              placeholder="Enter Comment:"
+              [(ngModel)]="flightinfopayload.Comments"
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-grid gap-2">
+            <button
+              type="button"
+              class="btn btn-primary btn-block"
+              (click)="onSubmit()"
+            >
+              Submit
+            </button>
+          </div>
+
+          <!-- Error Messages -->
+          <div class="mt-3">
+            <p class="text-danger">{{ errormessaage }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
